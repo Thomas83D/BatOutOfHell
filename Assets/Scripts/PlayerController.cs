@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         Vector2 playerInput = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
         MovementUpdate(playerInput);
 
-        Debug.Log(IsGrounded());
+       // Debug.Log(IsGrounded());
     }
 
     private void MovementUpdate(Vector2 playerInput)
