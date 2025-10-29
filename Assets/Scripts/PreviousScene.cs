@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PreviousScene : MonoBehaviour
 {
+    public Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,19 +16,21 @@ public class PreviousScene : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            LoadNextScene();
+            LoadPreviousScene();
         }
     }
 
-    void LoadNextScene()
+    void LoadPreviousScene()
     {
+        Vector3 newPosition = new Vector3(10f, -2.96f, 0f);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int previousSceneIndex = currentSceneIndex - 1;
 
         if (previousSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(previousSceneIndex);
+            SceneManager.LoadSceneAsync(previousSceneIndex);
             previousSceneIndex = currentSceneIndex;
+            playerTransform.position = newPosition;
         }
     }
 }

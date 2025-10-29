@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
+   // public Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
-        
+   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,13 +22,15 @@ public class NextScene : MonoBehaviour
 
     void LoadNextScene()
     {
+        //Vector3 newPosition = transform.position + Vector3.right;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadSceneAsync(nextSceneIndex);
             nextSceneIndex = currentSceneIndex;
+            //playerTransform.position = newPosition;
         }
     }
 }
