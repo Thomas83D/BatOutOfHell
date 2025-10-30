@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+    public Animator animator;
+    bool isWalking = false;
+
     public FacingDirection currentDirection = FacingDirection.right;
 
     public enum FacingDirection
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovementUpdate(Vector2 playerInput)
     {
-
+        
         if (IsTouchingWall())
         {
             playerInput.x = 0;
@@ -60,12 +63,14 @@ public class PlayerController : MonoBehaviour
 
         if (playerInput.x != 0)
         {
+            isWalking = true;
             currentSpeed += acceleration * Time.deltaTime;
             if (currentSpeed > maxSpeed)
                 currentSpeed = maxSpeed;
         }
         else
         {
+            isWalking = false;
             currentSpeed -= acceleration * Time.deltaTime;
             if (currentSpeed < 0)
                 currentSpeed = 0;
@@ -74,6 +79,15 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(playerInput.x * currentSpeed, rb.velocity.y);
 
         GetFacingDirection();
+
+        if (isWalking)
+        {
+            animator.Play("batwalk");
+        }
+        else
+        {
+            animator.Play("batidle");
+        }
     }
 
     private void Jump()
@@ -83,29 +97,33 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        bool grounded = Physics2D.Raycast(player.position, Vector2.down, 0.6f, ground);
-        Debug.DrawRay(player.position, Vector2.down * 0.6f, Color.green);
+        bool grounded = Physics2D.Raycast(player.position, Vector2.down, 0.4f, ground);
+        Debug.DrawRay(player.position, Vector2.down * 0.4f, Color.green);
         return grounded;
     }
 
     private bool IsTouchingWall()
     {
-
         Vector2 direction;
 
         if (currentDirection == FacingDirection.right)
         {
-            direction = Vector2.right;
+            bool touchingWall = Physics2D.Raycast(player.position + new Vector3(this.gameObject.GetComponent<BoxCollider2D>().size.x / 2, this.gameObject.GetComponent<BoxCollider2D>().size.y / 2, 0), Vector2.down, 0.55f, ground);
+            Debug.DrawRay(player.position + new Vector3(this.gameObject.GetComponent<BoxCollider2D>().size.x / 2, this.gameObject.GetComponent<BoxCollider2D>().size.y / 2, 0), Vector2.down * 0.55f, Color.red);
+            return touchingWall;
         }
         else
         {
-            direction = Vector2.left;
+            bool touchingWall = Physics2D.Raycast(player.position - new Vector3(this.gameObject.GetComponent<BoxCollider2D>().size.x / 2, -1 * this.gameObject.GetComponent<BoxCollider2D>().size.y / 2, 0), Vector2.down, 0.55f, ground);
+            Debug.DrawRay(player.position - new Vector3(this.gameObject.GetComponent<BoxCollider2D>().size.x / 2, -1 * this.gameObject.GetComponent<BoxCollider2D>().size.y / 2, 0), Vector2.down * 0.55f, Color.red);
+            return touchingWall;
         }
 
-        bool touchingWall = Physics2D.Raycast(player.position, direction, 0.55f, ground);
-        Debug.DrawRay(player.position, direction * 0.55f, Color.red);
+        
+       
 
-        return touchingWall;
+        
+        
 
     }
 

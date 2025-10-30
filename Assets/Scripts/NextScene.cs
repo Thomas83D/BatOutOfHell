@@ -20,7 +20,7 @@ public class NextScene : MonoBehaviour
         }
     }
 
-    void LoadNextScene()
+    public void LoadNextScene()
     {
         //Vector3 newPosition = transform.position + Vector3.right;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

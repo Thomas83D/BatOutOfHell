@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 3474532880627152617}
   - component: {fileID: 1926688761225726191}
   - component: {fileID: 1547303784094615983}
+  - component: {fileID: 6548747174641855369}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -240,14 +241,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationTime: 0.5
-  decelerationTime: 0.5
-  currentSpeed: 0
   maxSpeed: 5
   jumpVelocity: 6.5
+  player: {fileID: 1930528634784577825}
   ground:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 1930528634784577825}
+  sprite: {fileID: 4502282607833133433}
+  animator: {fileID: 6548747174641855369}
+  currentDirection: 1
 --- !u!61 &1547303784094615983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -293,3 +295,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8340874, y: 0.7150643}
   m_EdgeRadius: 0
+--- !u!95 &6548747174641855369
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006853660272475908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce1102efc75a1f040a1969ec2d6c5021, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
