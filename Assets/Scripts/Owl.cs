@@ -28,7 +28,7 @@ public class Owl : MonoBehaviour
         
 
         louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
-        total = Mathf.Max(total + louds - 1.5f, 0);
+        total = Mathf.Max(total + ((louds - 1.5f) * Time.deltaTime), 0);
         if (total > kill / 2) {
             hoot.sprite = hoo2;
         }

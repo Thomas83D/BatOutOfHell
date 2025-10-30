@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 1354934965}
     - target: {fileID: 1447069851430425175, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: loudnessSensibility
-      value: 600
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1930528634784577825, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4281,7 +4281,7 @@ MonoBehaviour:
   lit: {fileID: 16446777}
   louds: 0
   total: 0
-  kill: 3000
+  kill: 25
   game: {fileID: 1354934964}
   umad: 0
   hoot: {fileID: 1610908179}
