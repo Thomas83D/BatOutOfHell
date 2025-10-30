@@ -4087,6 +4087,11 @@ Transform:
   - {fileID: 324672658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1257144287 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4502282607833133433, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
+  m_PrefabInstance: {fileID: 1734431229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1447456173 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7360256177119068527, guid: f4d1ac32544013f47b260c6a70478f16, type: 3}
@@ -4110,6 +4115,10 @@ PrefabInstance:
       propertyPath: detector
       value: 
       objectReference: {fileID: 931892158}
+    - target: {fileID: 1926688761225726191, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1257144287}
     - target: {fileID: 1926688761225726191, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: jumpVelocity
       value: 8
@@ -4157,6 +4166,18 @@ PrefabInstance:
     - target: {fileID: 3474532880627152617, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146296937372053780, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146296937372053780, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146296937372053780, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8006853660272475908, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: m_Name
