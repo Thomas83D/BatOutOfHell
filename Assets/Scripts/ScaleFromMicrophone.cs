@@ -24,6 +24,7 @@ public class ScaleFromMicrophone : MonoBehaviour
 
 
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +41,7 @@ public class ScaleFromMicrophone : MonoBehaviour
         {
             expand = 0;
             loudnessCheck = 0;
+           
         }
         if (loudness > highMinimum)
         {
@@ -62,7 +64,7 @@ public class ScaleFromMicrophone : MonoBehaviour
         {
   
             loudness += (loudnessCheck - loudness) * 0.5f;
-            remove = 0.01f;
+            remove = 0.005f;
             if (loudness < highMinimum)
             {
                 loud = 0;

@@ -14,16 +14,19 @@ public class ResetGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ResetScene();
+        
     }
 
-    private void ResetScene()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            ResetScene();
+        }
+    }
+    public void ResetScene()
     {
         int resetScene = SceneManager.GetActiveScene().buildIndex;
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadSceneAsync(resetScene);
-        }
+        SceneManager.LoadSceneAsync(resetScene);
     }
 }

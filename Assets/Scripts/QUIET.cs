@@ -1,5 +1,7 @@
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Tilemaps;
 
 public class QUIET : MonoBehaviour
 {
@@ -33,13 +35,25 @@ public class QUIET : MonoBehaviour
             quiet = 0;
             reveal = 1;
         }
+        if (quiet > quietthreshold2 || quiet < quietthreshold1)
+        {
+            if (reveal == 1)
+            {
+                this.gameObject.GetComponent<TilemapCollider2D>().enabled = false;
+            }
+        }
+        if (quietthreshold1 < quiet && quiet < quietthreshold2 && reveal == 0)
+        {
+            this.gameObject.GetComponent<TilemapCollider2D>().enabled = true;
+        }
+
         if (reveal == 0)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, Mathf.Max(0, ((quiet - quietthreshold1) / qappearRange) * (quietthreshold2 - quiet) / qappearRange));
+            this.gameObject.GetComponent<Tilemap>().color = new Color(0, 0, 1, Mathf.Max(0, ((quiet - quietthreshold1) / qappearRange) * (quietthreshold2 - quiet) / qappearRange));
         }
         else
         {
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            this.gameObject.GetComponent<Tilemap>().color = new Color(0, 0, 0, 0);
         }
     }
 }
