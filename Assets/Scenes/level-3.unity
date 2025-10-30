@@ -310,7 +310,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3021856930342458962, guid: f4d1ac32544013f47b260c6a70478f16, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 408185938}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d1ac32544013f47b260c6a70478f16, type: 3}
@@ -4939,6 +4939,7 @@ MonoBehaviour:
   louds: 0
   loudthreshold: 20
   appearRange: 20
+  appear: 0
 --- !u!19719996 &1829979646
 TilemapCollider2D:
   m_ObjectHideFlags: 0
