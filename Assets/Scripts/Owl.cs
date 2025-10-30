@@ -16,6 +16,8 @@ public class Owl : MonoBehaviour
     public SpriteRenderer hoot;
     public Sprite hoo;
     public Sprite hoo2;
+    public float shakeashake = 3;
+    public Vector2 startPos = new Vector2 (-5.7f, 4.8f);
 
     public void Start()
     {
@@ -28,14 +30,18 @@ public class Owl : MonoBehaviour
         
 
         louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
-        total = Mathf.Max(total + ((louds - 1.5f) * Time.deltaTime), 0);
+        total = Mathf.Max(total + ((louds - 2.5f) * Time.deltaTime), 0);
         if (total > kill / 2) {
             hoot.sprite = hoo2;
+           
         }
         if (total < kill / 2)
         {
             hoot.sprite = hoo;
         }
+
+        
+
 
         if (total > kill)
         {
