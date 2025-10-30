@@ -12,17 +12,31 @@ public class Owl : MonoBehaviour
     public float total;
     public int kill;
     public GameObject game;
+    public bool umad;
+    public SpriteRenderer hoot;
+    public Sprite hoo;
+    public Sprite hoo2;
 
     public void Start()
     {
-        
+        umad = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
         total = Mathf.Max(total + louds - 1.5f, 0);
+        if (total > kill / 2) {
+            hoot.sprite = hoo2;
+        }
+        if (total < kill / 2)
+        {
+            hoot.sprite = hoo;
+        }
+
         if (total > kill)
         {
             game.GetComponent<ResetGame>().ResetScene();
