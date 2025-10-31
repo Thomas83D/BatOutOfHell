@@ -9,6 +9,7 @@ public class Owl : MonoBehaviour
     public Light2D lit;
     // Start is called before the first frame update
     public float louds;
+    public float speed = 3f;
     public float total;
     public int kill;
     public GameObject game;
@@ -18,34 +19,47 @@ public class Owl : MonoBehaviour
     public Sprite hoo2;
     public float shakeashake = 3;
     public Vector2 startPos = new Vector2 (-5.7f, 4.8f);
+    public Transform playerTransform;
 
     public void Start()
     {
         umad = false;
+        louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
-        louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
+        OwlDetection();
+        FollowPlayer();
+    }
+
+    public void OwlDetection()
+    {
         total = Mathf.Max(total + ((louds - 2.5f) * Time.deltaTime), 0);
-        if (total > kill / 2) {
+        if (total > kill / 2)
+        {
             hoot.sprite = hoo2;
-           
         }
-        if (total < kill / 2)
+        else if (total < kill / 2)
         {
             hoot.sprite = hoo;
         }
 
-        
-
-
         if (total > kill)
         {
             game.GetComponent<ResetGame>().ResetScene();
+        }
+    }
+
+    public void FollowPlayer()
+    {
+        Vector3 moveTo = playerTransform.position - transform.position;
+        if (Input.GetKey(KeyCode.L))
+        {
+            moveTo = moveTo.normalized;
+            transform.Translate(moveTo * Time.deltaTime * louds);
         }
     }
 }

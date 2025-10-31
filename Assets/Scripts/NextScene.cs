@@ -32,5 +32,9 @@ public class NextScene : MonoBehaviour
             nextSceneIndex = currentSceneIndex;
             //playerTransform.position = newPosition;
         }
+        else if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
 }
