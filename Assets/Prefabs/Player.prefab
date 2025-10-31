@@ -101,7 +101,7 @@ MonoBehaviour:
   maxSize: 10
   detector: {fileID: 0}
   loudness: 1
-  loudnessSensibility: 400
+  loudnessSensibility: 150
   threshold: 2
   remove: 0.001
   lowCenter: 3

@@ -40,6 +40,7 @@ public class Owl : MonoBehaviour
         if (total > kill / 2)
         {
             hoot.sprite = hoo2;
+            FollowPlayer();
         }
         else if (total < kill / 2)
         {
@@ -55,16 +56,13 @@ public class Owl : MonoBehaviour
             }
         }
 
-        if (total > kill)
-        {
-            game.GetComponent<ResetGame>().ResetScene();
-        }
+        
     }
 
     public void FollowPlayer()
     {
         Vector3 moveTo = playerTransform.position - transform.position;
         moveTo = moveTo.normalized;
-        transform.Translate(moveTo * Time.deltaTime * (louds / 4));
+        transform.Translate(moveTo * Time.deltaTime * (total / 2));
     }
 }

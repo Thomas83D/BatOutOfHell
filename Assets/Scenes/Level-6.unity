@@ -5090,10 +5090,6 @@ PrefabInstance:
       propertyPath: detector
       value: 
       objectReference: {fileID: 2038259571}
-    - target: {fileID: 1447069851430425175, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
-      propertyPath: loudnessSensibility
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 1930528634784577825, guid: 1f9880a8f934e434ba7c4ca94ed0a8b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.1
