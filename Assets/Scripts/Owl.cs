@@ -24,15 +24,13 @@ public class Owl : MonoBehaviour
     public void Start()
     {
         umad = false;
-        louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        louds = lit.GetComponent<ScaleFromMicrophone>().loudness;
         OwlDetection();
-        FollowPlayer();
     }
 
     public void OwlDetection()
@@ -45,6 +43,15 @@ public class Owl : MonoBehaviour
         else if (total < kill / 2)
         {
             hoot.sprite = hoo;
+            
+            if (louds > 1f)
+            {
+                FollowPlayer();
+            }
+            else
+            {
+                transform.position = transform.position;
+            }
         }
 
         if (total > kill)
@@ -56,10 +63,7 @@ public class Owl : MonoBehaviour
     public void FollowPlayer()
     {
         Vector3 moveTo = playerTransform.position - transform.position;
-        if (Input.GetKey(KeyCode.L))
-        {
-            moveTo = moveTo.normalized;
-            transform.Translate(moveTo * Time.deltaTime * louds);
-        }
+        moveTo = moveTo.normalized;
+        transform.Translate(moveTo * Time.deltaTime * (louds / 2));
     }
 }
