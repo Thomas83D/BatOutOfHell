@@ -5223,10 +5223,6 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1453295148}
-    - target: {fileID: 7362183257517645010, guid: 0e517d0c4b7c5c849b4b3e9cfce31393, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 8639093083165286075, guid: 0e517d0c4b7c5c849b4b3e9cfce31393, type: 3}
       propertyPath: m_Name
       value: Square

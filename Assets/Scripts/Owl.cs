@@ -24,6 +24,7 @@ public class Owl : MonoBehaviour
     public void Start()
     {
         umad = false;
+        Vector3 startPos = new Vector3();
     }
 
     // Update is called once per frame
@@ -64,6 +65,6 @@ public class Owl : MonoBehaviour
     {
         Vector3 moveTo = playerTransform.position - transform.position;
         moveTo = moveTo.normalized;
-        transform.Translate(moveTo * Time.deltaTime * (louds / 2));
+        transform.Translate(moveTo * Time.deltaTime * (louds / 4));
     }
 }
